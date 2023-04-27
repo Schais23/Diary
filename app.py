@@ -12,9 +12,9 @@ load_dotenv(dotenv_path)
 MONGODB_URI = os.environ.get("MONGODB_URI")
 DB_NAME =  os.environ.get("DB_NAME")
 
-connection_string = 'mongodb://Schais:StefanusC12@ac-awelz6j-shard-00-00.asicwly.mongodb.net:27017,ac-awelz6j-shard-00-01.asicwly.mongodb.net:27017,ac-awelz6j-shard-00-02.asicwly.mongodb.net:27017/?ssl=true&replicaSet=atlas-1322tt-shard-0&authSource=admin&retryWrites=true&w=majority'
-client = MongoClient(connection_string)
-db = client.dbsparta
+client = MongoClient(MONGODB_URI)
+
+db = client[DB_NAME]
 
 
 app = Flask(__name__)
